@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-""" pagination.simple - basic pagination """
+""" simple pagination """
 
 __author__ 		= "Dexter Tad-y"
 __credits__		= ["Leon Brocard", "Leo Lapworth"]
@@ -74,7 +74,7 @@ class Page:
 
 	def previous_page(self):
 		if (self.current_page() > 1):
-			return self.current_page - 1
+			return self.current_page() - 1
 		else:
 			return None
 
@@ -83,7 +83,7 @@ class Page:
 			return self.current_page() + 1
 
 	def skipped(self):
-		skipped = self.first - 1
+		skipped = self.first_entry() - 1
 		if skipped < 0:
 			return 0
 		return skipped
